@@ -15,13 +15,22 @@ interface DressCodeProps {
 
 const DressCode: React.FC<DressCodeProps> = ({ events }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [slideDirection, setSlideDirection] = useState<'left' | 'right' | null>(null)
 
   const goToNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % events.length)
+    setSlideDirection('right')
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % events.length)
+      setSlideDirection(null)
+    }, 500)
   }
 
   const goToPrevious = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + events.length) % events.length)
+    setSlideDirection('left')
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) => (prevIndex - 1 + events.length) % events.length)
+      setSlideDirection(null)
+    }, 500)
   }
 
   return (
@@ -32,7 +41,7 @@ const DressCode: React.FC<DressCodeProps> = ({ events }) => {
           <img src={before} alt="Anterior" className="arrow-icon" />
         </button>
 
-        <div className="timeline-event">
+        <div className={`timeline-event ${slideDirection ? `slide-${slideDirection}` : ''}`}>
           <img
             src={events[currentIndex].image}
             alt={events[currentIndex].title}

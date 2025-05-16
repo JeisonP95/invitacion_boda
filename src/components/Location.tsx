@@ -16,8 +16,16 @@ const Location: React.FC<LocationProps> = ({ name, address ,googleMapsLink }) =>
       <h2>Ubicación</h2>
       <div className="location-name">{name}</div>
       <div className="location-address">{address}</div>
-      <img src={fotoUbi} alt="Mapa de ubicación"className="location-map"/>
-      <CustomIconButton onClick={() => window.open(googleMapsLink, "_blank")}icon={<FaMapMarkerAlt />}text="Ver en Google Maps"/>
+      <div className="location-map-container">
+        <img src={fotoUbi} alt="Mapa de ubicación" className="location-map"/>
+        <div className="map-button-overlay">
+          <CustomIconButton 
+            onClick={() => window.open(googleMapsLink, "_blank")}
+            icon={<FaMapMarkerAlt />}
+            text="Google Maps"
+          />
+        </div>
+      </div>
     </div>
   )
 }

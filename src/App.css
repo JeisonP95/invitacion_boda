@@ -67,7 +67,6 @@ body {
   color: #52655A;
 }
 
-
 .date {
   font-size: 1.5rem;
   margin-bottom: 10px;
@@ -166,9 +165,9 @@ body {
   padding-left: 10px;
 }
 
-.timeline-button {
+.timeline-button{
   background: transparent;
-  border: transparent;
+  border:transparent;
 }
 
 .timeline-image {
@@ -189,7 +188,6 @@ body {
   color: #405b4c;
   font-weight: 500;
 }
-
 
 /* Location component */
 .location-section {
@@ -225,6 +223,42 @@ body {
   display: block;
 }
 
+.location-map-container {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.map-button-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.map-button-overlay:hover {
+  opacity: 1;
+}
+
+.map-button-overlay .custom-icon-button {
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #405b4c;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2px);
+}
+
+.map-button-overlay .custom-icon-button:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
 
 /* Itinerary component */
 .itinerary {
@@ -372,7 +406,6 @@ body {
   border-radius: 30px;
   cursor: pointer;
   transition: background-color 0.3s;
-  
 }
 
 .submit-btn:hover {
@@ -495,6 +528,7 @@ body {
   align-items: center;
   font-size: 1.2rem;
 }
+
 /*WeddingInvite components*/
 .invite-container {
   text-align: center;
@@ -594,10 +628,8 @@ body {
     max-width: 600px;
     text-align: left;
   }
-  
 
   .dress-options {
     gap: 30px;
   }
-  
 }
