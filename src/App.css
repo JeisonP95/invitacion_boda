@@ -1,0 +1,603 @@
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Playfair Display", serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.app {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  color: #333;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Background component */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  opacity: 0.3;
+}
+
+/* Profile component */
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 30px;
+  border: 5px solid #52655A;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.names {
+  font-family:'Great Vibes';
+  font-size: 4rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #52655A;
+}
+
+
+.date {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  background-color: #e4e7e4;
+  border-radius: 30px;
+  color: #67937a;
+  font-weight: 600;
+}
+
+.invite-image {
+  width: 15%;
+  max-width: 300px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  position: relative;
+}
+
+.location,
+.time, .message {
+  font-size: 1.2rem;
+  margin-bottom: 3px;
+  color: #405b4c;
+  padding: 2%;
+}
+
+/* Countdown component */
+.countdown {
+  background-color: #e4e7e4;
+  padding: 30px;
+  border-radius: 20px;
+  margin: 15px 15;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+}
+
+.countdown h2 {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  color: #67937a;
+}
+
+.countdown-timer {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countdown-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #405b4c;
+}
+
+.countdown-label {
+  font-size: 0.9rem;
+  color: #666;
+  text-transform: uppercase;
+}
+
+/* Our Story component */
+.our-story {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.our-story h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #67937a;
+}
+
+.heart-button {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.timeline-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 5%;
+}
+
+.timeline-event {
+  max-width: 600px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.timeline-button {
+  background: transparent;
+  border: transparent;
+}
+
+.timeline-image {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.heart-button {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.song-message {
+  margin-top: 20px;
+  color: #405b4c;
+  font-weight: 500;
+}
+
+
+/* Location component */
+.location-section {
+  text-align: center;
+}
+
+.location-section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #67937a;
+}
+
+.location-name {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #405b4c;
+}
+
+.location-address {
+  padding: 5px;
+  margin-bottom: 30px;
+  color: #405b4c;
+}
+
+.location-map {
+  padding: 5px;
+  width: 100%;
+  max-width: 300px;
+  height: 300px;
+  border-radius: 30px;
+  margin: 0 auto;
+  object-fit: cover;
+  display: block;
+}
+
+
+/* Itinerary component */
+.itinerary {
+  padding: 80px 0;
+  text-align: center;
+  background-color: #e4e7e4;
+  border-radius: 20px;
+  margin: 50px 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.itinerary h2 {
+  font-size: 2rem;
+  margin-bottom: 50px;
+  color: #67937a;
+}
+
+.itinerary-list {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.itinerary-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px dashed #67937a;
+}
+
+.itinerary-time {
+  font-weight: 600;
+  color: #67937a;
+}
+
+.itinerary-event {
+  color: #333;
+}
+
+/* Dress Code component */
+.dress-code {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.dress-code h2 {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: #67937a;
+}
+
+.dress-options {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.dress-option {
+  max-width: 300px;
+}
+
+.dress-option h3 {
+  font-size: 1.5rem;
+  margin: 20px 0 10px;
+  color: #405b4c;
+}
+
+.dress-option p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.dress-image {
+  width: 70%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* RSVP component */
+.rsvp {
+  padding: 80px 0;
+  text-align: center;
+  background-color: #e4e7e4;
+  border-radius: 10px;
+  margin: 50px 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.rsvp h2 {
+  max-width: 90%;
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  color: #67937a;
+}
+
+.rsvp-form {
+  max-width: 90%;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #405b4c;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.radio-group {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+}
+
+.radio-option input {
+  margin-right: 5px;
+}
+
+.submit-btn {
+  background-color: #67937a;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  
+}
+
+.submit-btn:hover {
+  background-color: #405b4c;
+}
+
+.ticket {
+  margin-top: 30px;
+  padding: 20px;
+  border: 2px dashed #405b4c;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.ticket h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.ticket-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #405b4c;
+}
+
+/* Gift Registry component */
+.gift-registry {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.gift-registry h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #405b4c;
+}
+
+.gift-registry p {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  color: #666;
+}
+
+.registry-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.registry-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #f8e8e8;
+  color: #405b4c;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: background-color 0.3s;
+}
+
+.registry-link:hover {
+  background-color: #f0d8d8;
+}
+
+/* Favorite Song component */
+.favorite-song {
+  padding: 80px 0;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.favorite-song h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #405b4c;
+}
+
+.favorite-song p {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  color: #666;
+}
+
+.song-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.song-form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+/* CustomIconButton components */
+.custom-icon-button {
+  display: inline-flex;
+  gap: 8px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #2f4a3c;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.custom-icon-button:hover {
+  background-color: #5d7c6b;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+}
+/*WeddingInvite components*/
+.invite-container {
+  text-align: center;
+  font-family: 'Georgia', serif;
+  color: #52655A;
+  background-color: transparent;
+  padding: 40px;
+  border-radius: 20px;
+  max-width: 500px;
+  margin: auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.rings {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.intro {
+  font-size: 22px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.main-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 10px 0 30px;
+  font-style: italic;
+}
+
+.date-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.line {
+  height: 1px;
+  background-color: #bcc7bd;
+  flex: 1;
+  max-width: 100px;
+}
+
+.label, .month, .day, .year {
+  font-size: 18px;
+}
+
+.day {
+  font-size: 36px;
+  font-weight: bold;
+  color: #52655A;
+}
+
+.schedule-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: 2px solid #bcc7bd;
+  background-color: #f3f8f5;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.schedule-button:hover {
+  background-color: #e0ede6;
+}
+
+.calendar-icon {
+  font-size: 20px;
+}
+
+/* Responsive styles */
+@media (max-width: 800px) {
+  .names {
+    font-size: 3rem;
+  }
+
+  .date {
+    font-size: 1.2rem;
+  }
+
+  .countdown-timer {
+    flex-wrap: wrap;
+  }
+
+  .timeline-event {
+    width: 100%;
+    padding-right: 2px;
+    padding-left: 2px;
+    max-width: 600px;
+    text-align: left;
+  }
+  
+
+  .dress-options {
+    gap: 30px;
+  }
+  
+}
