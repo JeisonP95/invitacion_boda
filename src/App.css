@@ -284,17 +284,34 @@ body {
 .itinerary-item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 15px 0;
   border-bottom: 1px dashed #67937a;
+}
+
+.event-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+}
+
+.event-icon {
+  font-size: 1.5rem;
+  color: #67937a;
+  min-width: 30px;
 }
 
 .itinerary-time {
   font-weight: 600;
   color: #67937a;
+  min-width: 100px;
+  text-align: right;
 }
 
 .itinerary-event {
   color: #333;
+  text-align: left;
 }
 
 /* Dress Code component */
@@ -429,6 +446,31 @@ body {
   font-size: 1.5rem;
   font-weight: 700;
   color: #405b4c;
+}
+
+.decline-ticket {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-style: solid;
+  border-color: #67937a;
+}
+
+.decline-ticket p {
+  margin: 10px 0;
+  color: #405b4c;
+  line-height: 1.6;
+}
+
+.ticket-message {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #67937a;
+}
+
+.signature {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.8rem;
+  color: #67937a;
+  margin-top: 10px;
 }
 
 /* Gift Registry component */
@@ -631,5 +673,58 @@ body {
 
   .dress-options {
     gap: 30px;
+  }
+
+  .itinerary-list {
+    max-width: 95%;
+  }
+
+  .itinerary-item {
+    padding: 12px 0;
+  }
+
+  .event-icon {
+    font-size: 1.2rem;
+    min-width: 25px;
+  }
+
+  .itinerary-time {
+    min-width: 80px;
+    font-size: 0.9rem;
+  }
+
+  .itinerary-event {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .itinerary-item {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 0;
+  }
+
+  .event-content {
+    width: auto;
+    gap: 10px;
+    flex: 1;
+  }
+
+  .itinerary-time {
+    text-align: right;
+    padding-left: 0;
+    font-size: 0.85rem;
+    min-width: 60px;
+  }
+
+  .itinerary-event {
+    font-size: 0.9rem;
+  }
+
+  .event-icon {
+    font-size: 1.1rem;
+    min-width: 20px;
   }
 }

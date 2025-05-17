@@ -10,13 +10,13 @@ interface RSVPProps {
 
 const RSVP: React.FC<RSVPProps> = ({ onSubmit, ticket }) => {
   const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
+  const [telefono, setTelefono] = useState("")
   const [attending, setAttending] = useState(true)
   const [guests, setGuests] = useState(0)
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    onSubmit(name, email, attending, guests)
+    onSubmit(name, telefono, attending, guests)
   }
 
   return (
@@ -28,8 +28,8 @@ const RSVP: React.FC<RSVPProps> = ({ onSubmit, ticket }) => {
           <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} required />
         </div>
         <div className="form-group">
-          <label htmlFor="email">Correo Electrónico</label>
-          <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+          <label htmlFor="telefono">Telefono</label>
+          <input type="text" id="telefono" value={telefono} onChange={(e) => setTelefono(e.target.value)} required />
         </div>
         <div className="form-group">
           <label>¿Asistirás?</label>
@@ -72,12 +72,24 @@ const RSVP: React.FC<RSVPProps> = ({ onSubmit, ticket }) => {
         </button>
       </form>
 
-      {ticket && (
+      {ticket && attending && (
         <div className="ticket">
           <h3>¡Gracias por confirmar tu asistencia!</h3>
           <p>Tu número de invitación es:</p>
           <div className="ticket-number">{ticket}</div>
           <p>Por favor, guarda este número para el día del evento.</p>
+        </div>
+      )}
+
+      {ticket && !attending && (
+        <div className="ticket decline-ticket">
+          <h3>Gracias por tu respuesta</h3>
+          <p>Lamentamos mucho que no puedas acompañarnos en este día tan especial.</p>
+          <p>Tu presencia siempre estará en nuestros corazones.</p>
+          <div className="ticket-message">
+            <p>Con cariño,</p>
+            <p className="signature">Valentina & Yeison</p>
+          </div>
         </div>
       )}
     </div>

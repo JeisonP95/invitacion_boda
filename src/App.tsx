@@ -5,7 +5,7 @@ import Profile from "./components/Profile"
 import Countdown from "./components/Countdown"
 import OurStory from "./components/OurStory"
 import Location from "./components/Location"
-import Itinerary from "./components/Itinerary"
+import Itinerary, { ItineraryEvent } from "./components/Itinerary"
 import DressCode from "./components/DressCode"
 import RSVP from "./components/RSVP"
 import GiftRegistry from "./components/GiftRegistry"
@@ -55,27 +55,25 @@ function App() {
   
 
   // Wedding itinerary
-  const itineraryEvents = [
-    { time: "16:00", event: "Ceremonia" },
-    { time: "17:30", event: "Cóctel de bienvenida" },
-    { time: "19:00", event: "Cena" },
-    { time: "20:30", event: "Primer baile" },
-    { time: "21:00", event: "Fiesta" },
-    { time: "01:00", event: "Fin del evento" },
+  const itineraryEvents: ItineraryEvent[] = [
+    { time: "16:00", event: "Ceremonia", type: "ceremony" },
+    { time: "17:30", event: "Cóctel de bienvenida", type: "reception" },
+    { time: "19:00", event: "Cena", type: "dinner" },
+    { time: "20:30", event: "Primer baile", type: "dance" },
+    { time: "21:00", event: "Fiesta", type: "dance" },
+    { time: "01:00", event: "Fin del evento", type: "ceremony" },
   ]
 
   // State for RSVP
   const [ticket, setTicket] = useState<string | null>(null)
 
   // Handle RSVP submission
-  const handleRSVP = (name: string, email: string, attending: boolean, guests: number) => {
-    if (attending) {
-      // Generate a ticket number
-      const ticketNumber = Math.floor(Math.random() * 1000000)
-        .toString()
-        .padStart(6, "0")
-      setTicket(`INVITACIÓN-${ticketNumber}`)
-    }
+  const handleRSVP = (name: string, telefono: string, attending: boolean, guests: number) => {
+    // Generate a ticket number regardless of attendance
+    const ticketNumber = Math.floor(Math.random() * 1000000)
+      .toString()
+      .padStart(6, "0")
+    setTicket(`INVITACIÓN-${ticketNumber}`)
   }
 
   return (
