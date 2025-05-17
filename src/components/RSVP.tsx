@@ -4,7 +4,7 @@ import type React from "react"
 import { useState } from "react"
 
 interface RSVPProps {
-  onSubmit: (name: string, email: string, attending: boolean, guests: number) => void
+  onSubmit: (name: string, attending: boolean, guests: number) => void
   ticket: string | null
 }
 
@@ -16,7 +16,7 @@ const RSVP: React.FC<RSVPProps> = ({ onSubmit, ticket }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    onSubmit(name, telefono, attending, guests)
+    onSubmit(name, attending, guests)
   }
 
   return (
@@ -75,9 +75,13 @@ const RSVP: React.FC<RSVPProps> = ({ onSubmit, ticket }) => {
       {ticket && attending && (
         <div className="ticket">
           <h3>¡Gracias por confirmar tu asistencia!</h3>
-          <p>Tu número de invitación es:</p>
-          <div className="ticket-number">{ticket}</div>
-          <p>Por favor, guarda este número para el día del evento.</p>
+          <p className="ticket-number">{name}</p>
+          <p>Nos alegra mucho que puedas acompañarnos en este día tan especial.</p>
+          <p>Tu presencia hará este momento aún más memorable.</p>
+          <div className="ticket-message">
+            <p>Con cariño,</p>
+            <p className="signature">Valentina & Yeison</p>
+          </div>
         </div>
       )}
 

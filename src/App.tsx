@@ -68,12 +68,11 @@ function App() {
   const [ticket, setTicket] = useState<string | null>(null)
 
   // Handle RSVP submission
-  const handleRSVP = (name: string, telefono: string, attending: boolean, guests: number) => {
-    // Generate a ticket number regardless of attendance
+  const handleRSVP = (name: string, attending: boolean, guests: number) => {
     const ticketNumber = Math.floor(Math.random() * 1000000)
       .toString()
       .padStart(6, "0")
-    setTicket(`INVITACIÓN-${ticketNumber}`)
+    setTicket(attending ? `INVITACIÓN-${ticketNumber} (${guests + 1} personas)` : `DECLINACIÓN-${ticketNumber}`)
   }
 
   return (

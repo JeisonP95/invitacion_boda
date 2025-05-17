@@ -423,6 +423,8 @@ body {
   border-radius: 30px;
   cursor: pointer;
   transition: background-color 0.3s;
+  display: block;
+  margin: 0 auto;
 }
 
 .submit-btn:hover {
