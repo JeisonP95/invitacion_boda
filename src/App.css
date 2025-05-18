@@ -669,20 +669,35 @@ body {
 
 /* Gift Registry component */
 .gift-registry {
-  padding: 80px 0;
+  padding: 80px 0 60px;
   text-align: center;
+  position: relative;
 }
 
 .gift-registry h2 {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
+  font-size: 2rem;
+  margin-bottom: 50px;
   color: #405b4c;
+  position: relative;
+  display: inline-block;
+}
+
+.gift-registry h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background-color: #67937a;
 }
 
 .gift-registry p {
   max-width: 600px;
   margin: 0 auto 30px;
-  color: #666;
+  color: #405b4c;
+  padding: 0 20px;
 }
 
 .registry-links {
@@ -1369,5 +1384,198 @@ body {
     padding: 5px 10px;
     min-width: 90px;
     font-size: 0.9rem;
+  }
+}
+
+.gift-message {
+  margin-top: 20px;
+  padding: 15px 25px;
+  background-color: #f0f5f2;
+  border-radius: 10px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeIn 0.5s ease;
+  border: 1px solid rgba(103, 147, 122, 0.2);
+  box-shadow: 0 2px 8px rgba(103, 147, 122, 0.05);
+}
+
+.gift-message p {
+  color: #405b4c;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .gift-message {
+    padding: 12px 20px;
+    margin-top: 15px;
+    border-width: 1px;
+  }
+
+  .gift-message p {
+    font-size: 0.95rem;
+  }
+}
+
+.honeymoon-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.honeymoon-form .form-group {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+.honeymoon-form .form-input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #67937a;
+  border-radius: 25px;
+  font-size: 1rem;
+  background-color: white;
+  color: #405b4c;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.honeymoon-form .form-input:focus {
+  outline: none;
+  border-color: #405b4c;
+  box-shadow: 0 0 0 2px rgba(103, 147, 122, 0.2);
+}
+
+.honeymoon-form .submit-btn {
+  background-color: #67937a;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  max-width: 120px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.honeymoon-form .submit-btn:hover {
+  background-color: #405b4c;
+}
+
+.honeymoon-form .cancel-btn {
+  background-color: #f0f5f2;
+  color: #405b4c;
+  border: 1px solid #67937a;
+  padding: 12px 25px;
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 100%;
+  max-width: 120px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.honeymoon-form .submit-btn:hover {
+  background-color: #405b4c;
+}
+
+.honeymoon-form .cancel-btn:hover {
+  background-color: #e8f0eb;
+  border-color: #405b4c;
+}
+
+@media (max-width: 600px) {
+  .honeymoon-form {
+    padding: 15px 10px;
+  }
+
+  .honeymoon-form .form-input {
+    padding: 10px 15px;
+    font-size: 0.95rem;
+  }
+
+  .honeymoon-form .submit-btn,
+  .honeymoon-form .cancel-btn {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    max-width: 100px;
+  }
+}
+
+.honeymoon-message {
+  color: #405b4c;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  text-align: center;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  .honeymoon-message {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+  margin-top: 8px;
+  max-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.honeymoon-form .submit-btn,
+.honeymoon-form .cancel-btn {
+  width: 100%;
+  max-width: 120px;
+  margin: 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .button-group {
+    max-width: 220px;
+  }
+
+  .honeymoon-form .submit-btn,
+  .honeymoon-form .cancel-btn {
+    max-width: 100px;
   }
 }
