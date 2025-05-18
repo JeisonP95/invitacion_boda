@@ -1,11 +1,14 @@
 import type React from "react"
 import { FaGift, FaMoneyBillWave } from "react-icons/fa"
 import { useState } from "react"
+import nequiQR from "../assets/qr_nequi.jpg"
 
 const GiftRegistry: React.FC = () => {
   const [showPhysicalGiftMessage, setShowPhysicalGiftMessage] = useState(false)
   const [showHoneymoonForm, setShowHoneymoonForm] = useState(false)
   const [amount, setAmount] = useState("")
+  const [paymentMethod, setPaymentMethod] = useState("mercadopago")
+  const [showNequiInfo, setShowNequiInfo] = useState(false)
 
   const handlePhysicalGiftClick = (e: React.MouseEvent) => {
     e.preventDefault()
@@ -22,32 +25,44 @@ const GiftRegistry: React.FC = () => {
   const handleCancel = () => {
     setShowHoneymoonForm(false)
     setAmount("")
+    setPaymentMethod("mercadopago")
+    setShowNequiInfo(false)
   }
 
   const handleHoneymoonSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     
     try {
-      // Ejemplo de datos a guardar
       const giftData = {
         type: 'honeymoon',
         amount: parseFloat(amount),
+        paymentMethod,
         timestamp: new Date()
       }
       
       // Aquí iría tu llamada a la API para guardar en la base de datos
       // await saveToDatabase(giftData)
       
-      // Redirigir a la cuenta bancaria
-      const bankKeyUrl = "http://link.mercadopago.com.co/electrosjp"
-      window.open(bankKeyUrl, "_blank")
+      // Redirigir según el método de pago seleccionado
+      if (paymentMethod === "mercadopago") {
+        const bankKeyUrl = "http://link.mercadopago.com.co/electrosjp"
+        window.open(bankKeyUrl, "_blank")
+        setShowHoneymoonForm(false)
+      } else if (paymentMethod === "nequi") {
+        setShowNequiInfo(true)
+      }
       
       // Limpiar el formulario
       setAmount("")
-      setShowHoneymoonForm(false)
     } catch (error) {
       console.error("Error al procesar el aporte:", error)
     }
+  }
+
+  const handleCloseNequiInfo = () => {
+    setShowNequiInfo(false)
+    setShowHoneymoonForm(false)
+    setPaymentMethod("mercadopago")
   }
 
   return (
@@ -91,6 +106,28 @@ const GiftRegistry: React.FC = () => {
                 className="form-input"
               />
             </div>
+            <div className="payment-methods">
+              <label className="payment-option">
+                <input
+                  type="radio"
+                  name="paymentMethod"
+                  value="mercadopago"
+                  checked={paymentMethod === "mercadopago"}
+                  onChange={(e) => setPaymentMethod(e.target.value)}
+                />
+                <span>Mercado Pago</span>
+              </label>
+              <label className="payment-option">
+                <input
+                  type="radio"
+                  name="paymentMethod"
+                  value="nequi"
+                  checked={paymentMethod === "nequi"}
+                  onChange={(e) => setPaymentMethod(e.target.value)}
+                />
+                <span>Nequi</span>
+              </label>
+            </div>
             <div className="button-group">
               <button type="submit" className="submit-btn">
                 Continuar
@@ -100,6 +137,23 @@ const GiftRegistry: React.FC = () => {
               </button>
             </div>
           </form>
+        </div>
+      )}
+      {showNequiInfo && (
+        <div className="nequi-info">
+          <div className="nequi-content">
+            <h3>Información de Pago Nequi</h3>
+            <p className="nequi-number">Número: 3001234567</p>
+            <div className="qr-container">
+              <img src={nequiQR} alt="Código QR Nequi" className="nequi-qr" />
+            </div>
+            <p className="nequi-instructions">
+              Escanea el código QR o usa el número para realizar tu aporte
+            </p>
+            <button className="close-btn" onClick={handleCloseNequiInfo}>
+              Cerrar
+            </button>
+          </div>
         </div>
       )}
     </div>
