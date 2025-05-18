@@ -166,14 +166,13 @@ body {
 
 /* Our Story component */
 .our-story {
-  padding: 80px 0;
+  padding: 80px 0 60px;
   text-align: center;
   background-color: #f0f5f2;
   position: relative;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
-  margin-bottom: 100px;
 }
 
 .our-story::before {
@@ -227,8 +226,16 @@ body {
 
 .timeline-image {
   width: 100%;
+  max-width: 800px;
+  height: 500px;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.timeline-image.sliding {
+  transform: scale(0.95);
 }
 
 .timeline-button {
@@ -279,8 +286,7 @@ body {
 /* Location component */
 .location-section {
   text-align: center;
-  padding: 80px 0;
-  margin-top: 50px;
+  padding: 60px 0 80px;
   position: relative;
 }
 
@@ -318,8 +324,8 @@ body {
 .location-map {
   padding: 5px;
   width: 100%;
-  max-width: 300px;
-  height: 300px;
+  max-width: 400px;
+  height: 400px;
   border-radius: 30px;
   margin: 0 auto;
   object-fit: cover;
@@ -329,7 +335,7 @@ body {
 .location-map-container {
   position: relative;
   width: 100%;
-  max-width: 300px;
+  max-width: 400px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -365,14 +371,13 @@ body {
 
 /* Itinerary component */
 .itinerary {
-  padding: 80px 0;
+  padding: 80px 0 60px;
   text-align: center;
   background-color: #f0f5f2;
   position: relative;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
-  margin-bottom: 100px;
 }
 
 .itinerary::before {
@@ -461,14 +466,27 @@ body {
 
 /* Dress Code component */
 .dress-code {
-  padding: 80px 0;
+  padding: 60px 0 40px;
   text-align: center;
 }
 
 .dress-code h2 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: 50px;
-  color: #67937a;
+  color: #405b4c;
+  position: relative;
+  display: inline-block;
+}
+
+.dress-code h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background-color: #67937a;
 }
 
 .dress-options {
@@ -503,25 +521,54 @@ body {
 
 /* RSVP component */
 .rsvp {
-  padding: 80px 0;
+  padding: 40px 0 80px;
   text-align: center;
-  background-color: #e4e7e4;
-  border-radius: 10px;
-  margin: 50px 0;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  background-color: #f0f5f2;
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+.rsvp::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(103, 147, 122, 0.1) 0%, rgba(103, 147, 122, 0.05) 100%);
+  z-index: 1;
 }
 
 .rsvp h2 {
-  max-width: 90%;
-  font-size: 1.5rem;
-  margin-bottom: 30px;
-  color: #67937a;
+  font-size: 2rem;
+  margin-bottom: 50px;
+  color: #405b4c;
+  position: relative;
+  display: inline-block;
+}
+
+.rsvp h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background-color: #67937a;
 }
 
 .rsvp-form {
+  position: relative;
+  z-index: 2;
   max-width: 90%;
   margin: 0 auto;
   text-align: left;
+  background-color:transparent;
+  padding: 30px;
+  border-radius: 15px;
 }
 
 .form-group {
@@ -641,55 +688,127 @@ body {
 .registry-links {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
   flex-wrap: wrap;
+  margin-top: 20px;
 }
 
 .registry-link {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #f8e8e8;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 25px;
+  background-color: #f0f5f2;
   color: #405b4c;
   text-decoration: none;
   border-radius: 30px;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .registry-link:hover {
-  background-color: #f0d8d8;
+  background-color: #e8f0eb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.registry-icon {
+  font-size: 1.2rem;
 }
 
 /* Favorite Song component */
 .favorite-song {
-  padding: 80px 0;
+  padding: 80px 0 60px;
   text-align: center;
-  margin-bottom: 50px;
+  background-color: #f0f5f2;
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+.favorite-song::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(103, 147, 122, 0.1) 0%, rgba(103, 147, 122, 0.05) 100%);
+  z-index: 1;
 }
 
 .favorite-song h2 {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
+  font-size: 2rem;
+  margin-bottom: 50px;
   color: #405b4c;
+  position: relative;
+  display: inline-block;
+}
+
+.favorite-song h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background-color: #67937a;
 }
 
 .favorite-song p {
   max-width: 600px;
   margin: 0 auto 30px;
-  color: #666;
+  color: #405b4c;
+  position: relative;
+  z-index: 2;
+  padding: 0 20px;
 }
 
 .song-form {
+  position: relative;
+  z-index: 2;
   max-width: 500px;
   margin: 0 auto;
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 .song-form input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  flex: 1;
+  padding: 12px 15px;
+  border: 1px solid #67937a;
+  border-radius: 25px;
   font-size: 1rem;
-  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #405b4c;
+  transition: all 0.3s ease;
+}
+
+.song-form input:focus {
+  outline: none;
+  border-color: #405b4c;
+  box-shadow: 0 0 0 2px rgba(103, 147, 122, 0.2);
+}
+
+.song-form .submit-btn {
+  background-color: #67937a;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: block;
+  margin: 0 auto;
+}
+
+.song-form .submit-btn:hover {
+  background-color: #405b4c;
 }
 
 /* CustomIconButton components */
@@ -819,6 +938,11 @@ body {
     padding: 15px;
   }
 
+  .timeline-image {
+    max-width: 500px;
+    height: 350px;
+  }
+
   .arrow-icon {
     width: 30px;
     height: 30px;
@@ -873,6 +997,9 @@ body {
 
   .music-links {
     padding: 15px;
+  }
+
+  .timeline-image {
   }
 }
 
@@ -1001,6 +1128,67 @@ body {
     min-width: 90px;
     font-size: 0.9rem;
   }
+
+  .timeline-image {
+    max-width: 400px;
+    height: 300px;
+    border-radius: 8px;
+  }
+
+  .song-form {
+    flex-direction: column;
+    gap: 15px;
+    padding: 0 20px;
+  }
+
+  .song-form input {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 0.95rem;
+  }
+
+  .song-form .submit-btn {
+    width: auto;
+    min-width: 120px;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    margin: 0 auto;
+  }
+
+  .favorite-song {
+    padding: 40px 0 30px;
+  }
+
+  .favorite-song h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+
+  .favorite-song p {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    padding: 0 15px;
+  }
+
+  .registry-links {
+    gap: 15px;
+  }
+
+  .registry-link {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+
+  .registry-icon {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .timeline-image {
+    max-width: 300px;
+    height: 250px;
+  }
 }
 
 .music-controls {
@@ -1077,7 +1265,7 @@ body {
   transition: all 0.2s;
   padding: 6px;
   border-radius: 50%;
-  background-color: #f0f5f2;
+  background-color:#f0f5f2;
   color: #405b4c;
   display: flex;
   align-items: center;
