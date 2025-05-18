@@ -33,17 +33,19 @@ const getEventIcon = (type: ItineraryEvent['type']) => {
 const Itinerary: React.FC<ItineraryProps> = ({ events }) => {
   return (
     <div className="itinerary">
-      <h2>Itinerario</h2>
-      <div className="itinerary-list">
-        {events.map((event, index) => (
-          <div key={index} className="itinerary-item">
-            <div className="event-content">
-              {getEventIcon(event.type)}
-              <div className="itinerary-event">{event.event}</div>
+      <div className="itinerary-content">
+        <h2>Itinerario</h2>
+        <div className="itinerary-list">
+          {events.map((event, index) => (
+            <div key={index} className="itinerary-item">
+              <div className="event-content">
+                {getEventIcon(event.type)}
+                <div className="itinerary-event">{event.event}</div>
+              </div>
+              <div className="itinerary-time">{event.time}</div>
             </div>
-            <div className="itinerary-time">{event.time}</div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   )

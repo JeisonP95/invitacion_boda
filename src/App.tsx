@@ -86,8 +86,8 @@ function App() {
           message={coupleInfo.message}
           location={coupleInfo.location}
           time={coupleInfo.time}
+          weddingDate={weddingDate}
         />
-        <Countdown weddingDate={weddingDate} />
         <OurStory events={storyEvents} />
         <Location
           name={coupleInfo.location}
