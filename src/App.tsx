@@ -2,7 +2,6 @@ import { useState } from "react"
 import "./App.css"
 import Background from "./components/Background"
 import Profile from "./components/Profile"
-import Countdown from "./components/Countdown"
 import OurStory from "./components/OurStory"
 import Location from "./components/Location"
 import Itinerary, { ItineraryEvent } from "./components/Itinerary"
@@ -68,11 +67,11 @@ function App() {
   const [ticket, setTicket] = useState<string | null>(null)
 
   // Handle RSVP submission
-  const handleRSVP = (name: string, attending: boolean, guests: number) => {
+  const handleRSVP = (attending: boolean) => {
     const ticketNumber = Math.floor(Math.random() * 1000000)
       .toString()
       .padStart(6, "0")
-    setTicket(attending ? `INVITACIÓN-${ticketNumber} (${guests + 1} personas)` : `DECLINACIÓN-${ticketNumber}`)
+    setTicket(attending ? `INVITACIÓN-${ticketNumber} (${123 + 1} personas)` : `DECLINACIÓN-${ticketNumber}`)
   }
 
   return (
@@ -96,7 +95,7 @@ function App() {
         />
         <Itinerary events={itineraryEvents} />
         <DressCode events={dressEvents} />
-        <RSVP onSubmit={handleRSVP} ticket={ticket} />
+        <RSVP onSubmit={() => handleRSVP(true)} ticket={ticket} />
         <GiftRegistry />
         <FavoriteSong />
       </div>

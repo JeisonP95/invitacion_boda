@@ -2,21 +2,48 @@
 
 import type React from "react"
 import { useState } from "react"
+import {ref, set, push, update} from "firebase/database"
+import { database } from "../services/Firebase"
 
 interface RSVPProps {
-  onSubmit: (name: string, attending: boolean, guests: number) => void
+  onSubmit: (name: string, attending: boolean) => void
   ticket: string | null
 }
+
+interface DataForm{
+  name: string
+  telefono: string
+  asistencia: boolean
+  acompanantes: boolean
+  metodos_pago: string
+  valor_pagado: number
+  cancion: string
+}
+
 
 const RSVP: React.FC<RSVPProps> = ({ onSubmit, ticket }) => {
   const [name, setName] = useState("")
   const [telefono, setTelefono] = useState("")
   const [attending, setAttending] = useState(true)
-  const [guests, setGuests] = useState(0)
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    onSubmit(name, attending, guests)
+    e.preventDefault();
+
+    const data: DataForm = {
+      name: name,
+      telefono: telefono,
+      asistencia: attending,
+      acompanantes: false,
+      metodos_pago: "Efectivo",
+      valor_pagado: 0,
+      cancion: "No tengo canción favorita"
+    }
+
+    const dbRef = ref(database, telefono);
+    const newRsvpRef = push(dbRef, "data");
+
+    set(newRsvpRef, data);
+    onSubmit(name, attending)
   }
 
   return (
@@ -59,7 +86,7 @@ const RSVP: React.FC<RSVPProps> = ({ onSubmit, ticket }) => {
         {attending && (
           <div className="form-group">
             <label htmlFor="guests">Número de Acompañantes</label>
-            <select id="guests" value={guests} onChange={(e) => setGuests(Number.parseInt(e.target.value))}>
+            <select id="guests">
               <option value="0">Solo yo</option>
               <option value="1">1 acompañante</option>
             </select>

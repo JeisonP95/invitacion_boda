@@ -33,12 +33,7 @@ const GiftRegistry: React.FC = () => {
     e.preventDefault()
     
     try {
-      const giftData = {
-        type: 'honeymoon',
-        amount: parseFloat(amount),
-        paymentMethod,
-        timestamp: new Date()
-      }
+      
       
       // Aquí iría tu llamada a la API para guardar en la base de datos
       // await saveToDatabase(giftData)

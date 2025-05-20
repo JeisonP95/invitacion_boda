@@ -1,5 +1,5 @@
 import type React from "react"
-import { useState, useRef } from "react"
+import { useState} from "react"
 import before from "../assets/before.png"
 import next from "../assets/next.png"
 

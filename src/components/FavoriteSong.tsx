@@ -2,13 +2,29 @@
 
 import type React from "react"
 import { useState } from "react"
+import {ref, update} from "firebase/database"
+import { database } from "../services/Firebase"
+
+interface DataForm{
+  name: string
+  telefono: string
+  asistencia: boolean
+  acompanantes: boolean
+  metodos_pago: string
+  valor_pagado: number
+  cancion: string
+}
 
 const FavoriteSong: React.FC = () => {
   const [song, setSong] = useState("")
   const [submitted, setSubmitted] = useState(false)
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    const dbRef = ref(database, );
+    update(dbRef, {
+      cancion: song
+    })
+    e.preventDefault();
     if (song.trim()) {
       setSubmitted(true)
     }
