@@ -2,8 +2,5 @@ import express from "express";
 import { createInvitation } from "../controllers/invitation.controller";
 
 const router = express.Router();
-
-router
-  .post("", createInvitation)
-
+router.post("/create", createInvitation);
 export default router;
