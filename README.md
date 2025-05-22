@@ -1,55 +1,56 @@
-# Invitación de Boda - Aplicación Web
+# Wedding Invitation - Web Application
 
-Esta es una aplicación web para gestionar invitaciones de boda, desarrollada utilizando tecnologías modernas y una arquitectura cliente-servidor. El sistema permite a los novios gestionar su lista de invitados, mientras que los invitados pueden confirmar su asistencia y seleccionar opciones de menú en tiempo real.
+This is a web application for managing wedding invitations, developed using modern technologies and a client-server architecture. The system allows couples to manage their guest list, while guests can confirm their attendance and select menu options in real-time.
 
-## Estructura del Proyecto
+## Project Structure
 
 ```
 invitacion_boda/
-├── backend/         # Servidor backend
+├── backend/         # Backend server
 │   ├── src/
-│   │   ├── configs/    # Configuraciones (DB, etc.)
-│   │   ├── controllers/# Controladores de la aplicación
-│   │   ├── routes/     # Rutas de la API
-│   │   ├── models/     # Modelos de datos
-│   │   └── utils/      # Utilidades y helpers
-├── frontend/       # Cliente frontend
+│   │   ├── configs/    # Configurations (DB, etc.)
+│   │   ├── controllers/# Application controllers
+│   │   ├── routes/     # API routes
+│   │   ├── models/     # Data models
+│   │   └── utils/      # Utilities and helpers
+├── frontend/       # Frontend client
 │   ├── src/
-│   │   ├── components/ # Componentes reutilizables
-│   │   ├── pages/      # Páginas de la aplicación
+│   │   ├── components/ # Reusable components
+│   │   ├── pages/      # Application pages
 │   │   ├── hooks/      # Custom hooks
-│   │   ├── context/    # Contextos de React
-│   │   ├── services/   # Servicios y llamadas API
-│   │   ├── styles/     # Estilos y temas
-│   │   └── utils/      # Utilidades y helpers
+│   │   ├── context/    # React contexts
+│   │   ├── services/   # Services and API calls
+│   │   ├── styles/     # Styles and themes
+│   │   └── utils/      # Utilities and helpers
 └── README.md
 ```
 
-## Tecnologías Utilizadas
+## Technologies Used
 
 - **Backend**: 
-  - Bun (Runtime y gestor de paquetes)
+  - Bun (Runtime and package manager)
   - TypeScript
   - MySQL
-  - Tiempo real implementado
+  - Real-time implementation
+  - NodeJS using Express
 - **Frontend**:
-  - React con TypeScript
-  - Tailwind CSS para estilos
-  - React Router para navegación
-  - Socket.io-client para tiempo real
-  - Vite como bundler
+  - React with TypeScript
+  - Tailwind CSS for styling
+  - React Router for navigation
+  - Socket.io-client for real-time
+  - Vite as bundler
 
-## Requisitos Previos
+## Prerequisites
 
-1. Instalar [Bun](https://bun.sh/)
-2. MySQL instalado y configurado
-3. Node.js y npm (para algunas dependencias)
+1. Install [Bun](https://bun.sh/)
+2. MySQL installed and configured
+3. Node.js and npm (for some dependencies)
 
-## Configuración del Entorno
+## Environment Setup
 
-### Variables de Entorno
+### Environment Variables
 
-Crear un archivo `.env` en la carpeta `backend` con la siguiente configuración:
+Create a `.env` file in the `backend` folder with the following configuration:
 
 ```env
 DB_HOST=127.0.0.1
@@ -59,76 +60,76 @@ DB_PASSWORD=
 DB_DATABASE=invitations
 ```
 
-## Instalación y Ejecución
+## Installation and Execution
 
 ### Backend
 
-1. Instalar dependencias:
+1. Install dependencies:
 ```bash
 cd backend
 bun run i
 ```
 
-2. Ejecutar en modo desarrollo (con recarga en tiempo real):
+2. Run in development mode (with hot reload):
 ```bash
 bun run dev
 ```
 
-3. Compilar y ejecutar en producción:
+3. Build and run in production:
 ```bash
-bun run build    # Compilar el proyecto
-bun run start    # Ejecutar la versión compilada
+bun run build    # Build the project
+bun run start    # Run the compiled version
 ```
 
 ### Frontend
 
-1. Instalar dependencias:
+1. Install dependencies:
 ```bash
 cd frontend
 bun run i
 ```
 
-2. Ejecutar en modo desarrollo:
+2. Run in development mode:
 ```bash
 bun run dev
 ```
 
-3. Compilar para producción:
+3. Build for production:
 ```bash
-bun run build    # Genera la versión optimizada para producción
+bun run build    # Generates the optimized production version
 ```
 
-## Características
+## Features
 
-- Sistema de gestión de invitaciones en tiempo real
-- Base de datos MySQL para almacenamiento persistente
-- Interfaz de usuario moderna y responsive
-- Panel de administración para los novios
-- Sistema de confirmación de asistencia
-- Selección de menú y preferencias alimentarias
-- Notificaciones en tiempo real
-- Diseño adaptable para móviles y escritorio
+- Real-time invitation management system
+- MySQL database for persistent storage
+- Modern and responsive user interface
+- Admin panel for the couple
+- Attendance confirmation system
+- Menu selection and dietary preferences
+- Real-time notifications
+- Responsive design for mobile and desktop
 
-## Desarrollo
+## Development
 
-El proyecto está estructurado para permitir un desarrollo eficiente y mantenible. El backend utiliza TypeScript para un desarrollo más robusto y seguro, mientras que la implementación en tiempo real permite actualizaciones instantáneas. El frontend está construido con React y TypeScript, utilizando las mejores prácticas de desarrollo y patrones de diseño modernos.
+The project is structured to allow efficient and maintainable development. The backend uses TypeScript for more robust and secure development, while the real-time implementation allows instant updates. The frontend is built with React and TypeScript, using modern development best practices and design patterns.
 
-## Notas Importantes
+## Important Notes
 
-- Asegúrate de tener todas las variables de entorno configuradas antes de iniciar el proyecto
-- La base de datos debe estar creada y accesible antes de iniciar el servidor
-- El servidor en tiempo real está implementado en el backend para actualizaciones instantáneas
-- El frontend debe tener acceso al backend para funcionar correctamente
+- Make sure all environment variables are configured before starting the project
+- The database must be created and accessible before starting the server
+- The real-time server is implemented in the backend for instant updates
+- The frontend must have access to the backend to work properly
 
-## Contribución
+## Contributing
 
-Para contribuir al proyecto:
-1. Haz un fork del repositorio
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Haz commit de tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
+To contribute to the project:
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## Licencia
+## License
 
-Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE.md](LICENSE.md) para más detalles.
+This project is under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.

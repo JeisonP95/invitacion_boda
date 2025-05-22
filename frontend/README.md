@@ -1,28 +1,74 @@
-# React + TypeScript + Vite
+# Wedding Invitation Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend application for the Wedding Invitation system, built with React, TypeScript, and Vite. The application provides a modern and responsive interface for wedding guests to manage their invitations and for couples to administrate their guest list.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React 18+ with TypeScript
+- Vite for build tooling and development
+- Tailwind CSS for styling
+- React Router for navigation
+- Socket.io-client for real-time updates
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
+
+- Node.js 18+ and npm
+- Backend server running (see main project README)
+
+### Installation
+
+1. Install dependencies:
+```bash
+bun run i
+```
+
+2. Create a `.env` file in the root directory:
+```env
+VITE_API_URL=http://localhost:3000
+```
+
+3. Start the development server:
+```bash
+bun run dev
+```
+
+The app will be available at `http://localhost:5173`
+
+## Available Scripts
+
+- `bun run dev` - Start development server with hot reload
+- `bun run build` - Build for production
+- `bun run preview` - Preview production build locally
+- `bun run lint` - Run ESLint
+- `bun run type-check` - Run TypeScript type checking
+
+## Project Structure
+
+```
+src/
+├── components/     # Reusable UI components
+├── pages/         # Route pages
+├── hooks/         # Custom React hooks
+├── context/       # React context providers
+├── services/      # API and socket services
+├── styles/        # Global styles and Tailwind config
+├── types/         # TypeScript type definitions
+└── utils/         # Helper functions and constants
+```
+
+## ESLint Configuration
+
+The project uses a strict TypeScript-aware ESLint configuration. To modify the rules, edit the `eslint.config.js` file:
 
 ```js
 export default tseslint.config({
   extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
     ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
     ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
   ],
   languageOptions: {
-    // other options...
     parserOptions: {
       project: ['./tsconfig.node.json', './tsconfig.app.json'],
       tsconfigRootDir: import.meta.dirname,
@@ -31,24 +77,34 @@ export default tseslint.config({
 })
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Features
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Real-time updates for guest responses
+- Responsive design for all devices
+- Theme customization
+- Interactive RSVP forms
+- Menu selection interface
+- Admin dashboard for couples
+- Guest list management
+- Dietary preferences handling
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## Development Guidelines
+
+- Use TypeScript strict mode
+- Follow the component structure in `src/components`
+- Implement responsive design using Tailwind CSS
+- Handle all API calls through service functions
+- Use React context for global state management
+- Implement error boundaries for robust error handling
+
+## Contributing
+
+1. Create a feature branch
+2. Make your changes
+3. Run tests and type checking
+4. Submit a pull request
+
+## Related
+
+- [Main Project README](../README.md)
+- [Backend Documentation](../backend/README.md)
