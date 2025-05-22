@@ -1,0 +1,14 @@
+CREATE DATABASE IF NOT EXISTS `invitation`;
+
+USE `invitation`;
+
+CREATE TABLE IF NOT EXISTS `invitation` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `name` VARCHAR(255) NOT NULL,
+    `email` VARCHAR(255) NOT NULL,
+    `phone` VARCHAR(255) NOT NULL,
+    `date` DATE NOT NULL,
+    `time` TIME NOT NULL,
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
