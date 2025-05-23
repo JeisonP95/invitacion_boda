@@ -5,5 +5,5 @@ export const conexion = mysql.createPool({
     port: 3306,
     user: 'root',
     password: '',
-    database: 'bemindbd'
+    database: 'invitations'
 }).promise();
