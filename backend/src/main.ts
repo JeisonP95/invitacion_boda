@@ -1,11 +1,11 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import http from "http";
 import bodyParser from "body-parser";
 import cookiesParser from "cookie-parser";
 import compression from "compression";
 import cors from "cors";
 import dotenv from "dotenv";
-import invitationRoute from "./routes/invitation.routing";
+// import invitationRoute from "./routes/invitation.routing";
 
 dotenv.config();
 
@@ -18,8 +18,10 @@ app.use(cookiesParser());
 app.use(bodyParser.json());
 
 //routes
-app.use("/api/invitation", invitationRoute);
-// app.get("/", (_: Request, res: Response) => res.send("Hello World"));
+// app.use("/api/invitation", invitationRoute);
+app.get("/", (_: Request, res: Response) => {
+    res.send("Hello World");
+});
 
 const server = http.createServer(app);
-server.listen(_PORT, () => console.log(`Server running on http://localhost:${_PORT}/api/invitation`));
+server.listen(_PORT, () => console.log(`Server running on http://localhost:${_PORT}/api`));
